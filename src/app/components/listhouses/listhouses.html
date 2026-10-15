@@ -1,0 +1,24 @@
+@if(this.houseService.apiError()){
+    <p>There seems to be an error connecting to the API</p>
+}
+@else{
+    @if (houseService.houses(); as house){
+        @for(houseData of houseService.houses();track houseData;){
+            @if(houseData.name != ''){
+                    <div class="houseListDiv">
+                        <h4>
+                            {{ houseData.name}}
+                        </h4>
+                        <div>
+                            <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"  [routerLink]="['/house',  houseData.url]">View Details</a>
+                        </div>
+                    </div>
+            }
+    }
+    }
+     @else{
+        <div>
+            <h2>No houses found</h2>
+        </div>
+    }
+}

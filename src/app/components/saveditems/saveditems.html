@@ -1,0 +1,31 @@
+<h2>Saved Items</h2>
+@if(this.characterService.databaseError()){
+    <p>There seems to be an error connecting to the database</p>
+}
+@else{
+    <div class="container">
+    @if(characterService.dbCharacters(); as character;){
+        @for(character of characterService.dbCharacters(); track character){
+            <div class="databaseDiv">
+                <div class="card">
+                <h2>{{character.name}}</h2><br>
+                <p><b>Title: </b><br>{{character.titles}}</p><br>
+                <p><b>Aliases: </b><br>{{character.aliases}}</p><br>
+                <p><b>Gender: </b><br>{{character.gender}}</p><br>
+                <p><b>Culture: </b><br>{{character.culture}}</p><br>
+                <p><b>Born; </b><br>{{character.born}}<br>
+                <p><b>Played by: </b><br>{{character.playedBy}}</p><br>
+                <p><b>Appears in: </b><br>{{character.tvSeries}}</p><br>
+                <p><b>Personal note: </b><br>{{character.note}}</p><br>
+            <button class="btn btn-primary custom-btn" (click)="deleteItem(character._id)">Delete</button>
+        </div>   
+        </div>
+        }
+    }
+    @else{
+        <div>
+            <h2>No saved items found</h2>
+        </div>
+    }
+</div>
+}

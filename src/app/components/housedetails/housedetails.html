@@ -1,0 +1,37 @@
+@if (houseService.house(); as house){
+    <div>
+    <div class="houseDetails">
+            <h2>
+                {{ house.name}}
+            </h2>
+            <p>
+                <b>Region:</b> {{house.region}}
+            </p>
+            <p>
+                <b>Coat of Arms: </b>{{house.coatOfArms}}
+            </p>
+            <p>
+                <b>Words:</b> {{house.words}}
+            </p>
+            <p>
+                <b>Titles:</b> {{house.titles}}
+            </p>
+            <p>
+                <b>Seats:</b> {{house.seats}}
+            </p>
+            <p>
+                <b>Founded:</b> {{house.founded}}
+            </p>
+            <p>
+                <b>Ancestral Weapons:</b> {{house.ancestralWeapons}}
+            </p>
+        </div>
+    </div>
+}
+@else{
+    <div>
+            <h2>
+                No house found
+            </h2>
+        </div>
+}

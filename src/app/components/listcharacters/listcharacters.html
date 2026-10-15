@@ -1,0 +1,37 @@
+@if(this.characterService.apiError()){
+    <p>There seems to be an error connecting to the API</p>
+}
+@else{
+    <div class="container">
+@if (characterService.characters(); as character){
+        @for(characterData of characterService.characters();track characterData;){
+            @if(characterData.name != ''){
+            <div class="characterListDiv">
+                <h3>
+                {{ characterData.name}}
+                
+            </h3>
+            <p>
+                {{characterData.gender}}  
+            </p>
+            <p>
+                {{characterData.culture}}
+            </p>
+            
+             <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" [routerLink]="['/character',  characterData.url]">View Details</a>
+        </div>
+    
+        } 
+    }
+    }
+     @else{
+        <div>
+            <h2>No characters found</h2>
+        </div>
+    }
+</div>
+<div class="buttonsDiv">
+        <button class="btn btn-primary custom-btn" type="button" (click)="previousPage()">Previous</button>
+        <button class="btn btn-primary custom-btn" type="button" (click)="nextPage()">Next</button>
+</div>
+}

@@ -1,0 +1,43 @@
+<div>
+    <h2>Search House</h2>
+    <div>
+        <!--
+        I used this website to help me create functional radio buttons:
+        https://www.educative.io/answers/how-to-use-radio-buttons-in-angular 
+        -->
+        <form (ngSubmit)="getHouse(house)">
+            <label for="houses">Choose a House:</label><br>
+            <input type="radio" id="stark" name="house" value="House Stark of Winterfell" (change)="selectedHouse ='House Stark of Winterfell'"/>
+            <label for="House Stark of Winterfell">House Stark of Winterfell</label><br>
+
+            <input type="radio" id="targaryen" name="house" (change)="selectedHouse = 'House Targaryen of King\'s Landing'"/>
+            <label for="targaryen">House Targaryen of King's Landing</label><br>
+
+            <input type="radio" id="lannister" name="house" value="House Lannister of Casterly Rock" (change)="selectedHouse ='House Lannister of Casterly Rock'"/>
+            <label for="lannister">House Lannister of Casterly Rock</label><br>
+
+            <input type="radio" id="baratheon" name="house" value="House Baratheon of Storm\'s End" (change)="selectedHouse = 'House Baratheon of Storm\'s End'"/>
+            <label for="baratheon">House Baratheon of Storm's End</label><br>
+
+            <input type="radio" id="arryn" name="house" value="House Arryn of the Eyrie" (change)="selectedHouse ='House Arryn of the Eyrie'"/>
+            <label for="arryn">House Arryn of the Eyrie</label><br>
+
+            <input type="radio" id="tully" name="house" value="House Tully of Riverrun" (change)="selectedHouse ='House Tully of Riverrun'"/>
+            <label for="tully">House Tully of Riverrun</label><br>
+
+            <input type="radio" id="greyjoy" name="house" value="House Greyjoy of Pyke" (change)="selectedHouse ='House Greyjoy of Pyke'"/>
+            <label for="greyjoy">House Greyjoy of Pyke</label><br>
+
+            <input type="radio" id="tyrell" name="house" value="House Tyrell of Highgarden" (change)="selectedHouse ='House Tyrell of Highgarden'"/>
+            <label for="tyrell">Tyrell of Highgarden</label><br>
+
+            <p>You selected: {{selectedHouse}}</p>
+            <div class="buttonsDiv">
+                <button class="btn btn-primary custom-btn" type="submit">Search</button>
+            </div>
+        </form>
+    
+</div>
+
+</div>
+

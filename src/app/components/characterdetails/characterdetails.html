@@ -1,0 +1,74 @@
+@if(this.characterService.apiError()){
+    <p>There seems to be an error connecting to the API</p>
+}
+@else{
+@if (characterService.character(); as character){
+    <div class="characterDetails">
+        <div class="results">
+            <h2>
+                {{ character.name}}
+            </h2>
+            <p>
+                <b>Titles</b>: {{character.titles}}
+            </p>
+            <p>
+                <b>Aliases:</b> {{character.aliases}}
+            </p>
+            <p>
+                <b>Gender:</b> {{character.gender}}
+            </p>
+            <p>
+               <b>Culture:</b> {{character.culture}}
+            </p>
+            <p>
+               <b>Born:</b> {{character.born}}
+            </p>
+            <p>
+               <b>Played by:</b> {{character.playedBy}}
+            </p>
+            <p>
+               <b>Appears in:</b> {{character.tvSeries}}
+            </p>
+          
+        </div>
+        </div>
+        <div class="characterForm">
+            <h2>Save Character Details</h2>
+            <form (ngSubmit)="addItem(name, titles, aliases, gender, culture, born, playedBy, tvSeries, personalNote)">
+                <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" [(ngModel)]="name" id="name" name="name" required><br>
+                <label for="titles">Titles</label>
+                <input type="text" class="form-control" [(ngModel)]="titles" id="titles" name="titles"><br>
+                <label for="aliases">Aliases</label>
+                <input type="text" class="form-control" [(ngModel)]="aliases" id="aliases" name="aliases"><br>
+                <label for="gender">Gender</label>
+                <input type="text" class="form-control" [(ngModel)]="gender" id="gender" name="gender"><br>
+                <label for="culture">Culture</label>
+                <input type="text" class="form-control" [(ngModel)]="culture" id="culture" name="culture"><br>
+                <label for="born">Born</label>
+                <input type="text" class="form-control" [(ngModel)]="born" id="born" name="born"><br>
+                <label for="playedBy">Played By</label>
+                <input type="text" class="form-control" [(ngModel)]="playedBy" id="playedBy" name="playedBy"><br>
+                <label for="tvSeries">TV Seasons</label>
+                <input type="text" class="form-control" [(ngModel)]="tvSeries" id="tvSeries" name="tvSeries"><br>
+                <label for="personalNote">Personal note</label>
+                <input type="text" class="form-control" [(ngModel)]="personalNote" id="personalNote" name="personalNote"><br>
+                <div class="buttonsDiv">
+                    <button class="btn btn-primary custom-btn" type="submit">Save details</button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    }
+@else{
+        <div>
+            <h2>
+                No character found
+            </h2>
+        </div>
+}
+}
+
+
